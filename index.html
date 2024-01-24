@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirection...</title>
+  <title>Acrostiches de Majoie | Par Eldis</title>
+  <meta name="description" content="Jolis acrostiches du prénom Majoie faits par Eldis">
   <link rel="icon" type="image/x-icon" href="https://majoie-acrostiches.cloudns.be/vignette.jpg" />
   <style>
     body {
@@ -10,14 +11,18 @@
       align-items: center;
       height: 100vh;
       background-color: #FFFFFF;
+      margin: 0; /* Ajout de cette ligne pour réinitialiser les marges du body */
     }
 
     .logo-animation {
-      width: 350px;
-      height: 350px;
+      width: 800px;
+      height: 800px;
       background-image: url('logo.png');
       background-size: cover;
       animation: pulse 2s linear infinite;
+      display: flex; /* Ajout de cette ligne pour activer le centrage vertical */
+      justify-content: center; /* Ajout de cette ligne pour centrer horizontalement */
+      align-items: center; /* Ajout de cette ligne pour centrer verticalement */
     }
 
     @keyframes pulse {
@@ -33,7 +38,7 @@
   <script>
     setTimeout(function() {
       window.location.href = "accueil.html";
-    }, 4500); // 
+    }, 4500);
   </script>
 </body>
 </html>
