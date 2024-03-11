@@ -26,11 +26,16 @@
 
         body {
             opacity: 0;
-            transition: opacity 1.4s ease-in-out;
+            animation: fadeIn 1.4s ease-in forwards; /* Animation pour la transition d'opacité */
         }
 
-        body.loaded {
-            opacity: 1;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         
         .button_acrostiche,
@@ -152,6 +157,7 @@
         </div>
         <p style="margin-top: 30px"><a style="text-decoration: none; ; background-color: #4CAF50; padding: 8px; font-size: 1.3em" class="button_acrostiche" href="https://api.whatsapp.com/send?phone=22995383330">Laissez-moi un commentaire<img style="width: 25x; height: 25px; position: relative; top: 7px"src="whatsapp.png" ></a></p>
     </section>
+    
     
     <footer id="footer">
         <p>Acrostiches de Majoie | par Eldis, Copyright &copy; 2024</p>
