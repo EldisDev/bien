@@ -26,7 +26,7 @@
 
         body {
             opacity: 0;
-            transition: opacity 1.4s ease-in;
+            transition: opacity 1.4s ease-in-out;
         }
 
         body.loaded {
@@ -88,6 +88,39 @@
         });
     </script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const aboutLink = document.querySelector('a[href="#footer"]');
+            const footer = document.getElementById('footer');
+
+            aboutLink.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const originalColor = getComputedStyle(footer).backgroundColor;
+
+                const footerOffset = footer.offsetTop;
+                window.scrollTo({
+                    top: footerOffset,
+                    behavior: 'smooth'
+                });
+
+                // Change footer color to blue after 2 seconds
+                setTimeout(function () {
+                    footer.style.transition = 'background-color 1s ease-in-out';
+                    footer.style.backgroundColor = '#FF5E99';
+                }, 1);
+
+                // Change back to the original color after 3 seconds
+                setTimeout(function () {
+                    footer.style.transition = 'background-color 1s ease-in-out';
+                    footer.style.backgroundColor = originalColor;
+                }, 1000);
+            });
+
+            // Set body opacity to 1 after DOMContentLoaded
+            document.body.style.opacity = 1;
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -120,40 +153,8 @@
         <p style="margin-top: 30px"><a style="text-decoration: none; ; background-color: #4CAF50; padding: 8px; font-size: 1.3em" class="button_acrostiche" href="https://api.whatsapp.com/send?phone=22995383330">Laissez-moi un commentaire<img style="width: 25x; height: 25px; position: relative; top: 7px"src="whatsapp.png" ></a></p>
     </section>
     
-
     <footer id="footer">
         <p>Acrostiches de Majoie | par Eldis, Copyright &copy; 2024</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const aboutLink = document.querySelector('a[href="#footer"]');
-            const footer = document.getElementById('footer');
-
-            aboutLink.addEventListener('click', function (event) {
-                event.preventDefault();
-
-                const originalColor = getComputedStyle(footer).backgroundColor;
-
-                const footerOffset = footer.offsetTop;
-                window.scrollTo({
-                    top: footerOffset,
-                    behavior: 'smooth'
-                });
-
-                // Change footer color to blue after 2 seconds
-                setTimeout(function () {
-                    footer.style.transition = 'background-color 1s ease-in-out';
-                    footer.style.backgroundColor = '#FF5E99';
-                }, 1);
-
-                // Change back to the original color after 3 seconds
-                setTimeout(function () {
-                    footer.style.transition = 'background-color 1s ease-in-out';
-                    footer.style.backgroundColor = originalColor;
-                }, 1000);
-            });
-        });
-    </script>
 </body>
 </html>
